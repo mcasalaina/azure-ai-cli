@@ -1,24 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Speech Recognition App</title>
-    <link rel="stylesheet" href="./assets/w3.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="./assets/style.css">
+    <title>ConTaco Ordering Site</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-color: #fff3e0;
+            color: #4a148c;
+            margin: 0;
+        }
+
+        #header {
+            background-color: #4a148c;
+            color: white;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        #header img {
+            height: 80px;
+            margin-right: 10px;
+        }
+
+        #header h1 {
+            margin: 0;
+        }
+
+        #menu {
+            width: 40%;
+            padding: 20px;
+            background-color: #fff59d;
+            float: left;
+        }
+
+        #order {
+            width: 40%;
+            padding: 20px;
+            background-color: #ffcc80;
+            float: right;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        #text-box-container {
+            position: fixed;
+            bottom: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #text-box {
+            width: 60%;
+            padding: 10px;
+        }
+
+        #submit-button {
+            padding: 10px;
+        }
+    </style>
 </head>
+
 <body>
-    <div id="app">
-        <div id="text-box-container">
-            <!-- style="position: fixed; bottom: 20px; width: 100%; display: flex; justify-content: center; align-items: center;" -->
-            <input type="text" id="text-box" style="width: 60%; padding: 10px;" placeholder="Type here or press ENTER to start listening...">
-            <button id="submit-button" class="w3-button">
-                <i class="fa fa-solid fa-arrow-up"></i>
-            </button>
-        </div>
+    <div id="header">
+        <img src="assets/contaco_cat.png" alt="Contaco Logo - Cat eating a taco">
+        <!-- Ensure this image is in the correct path -->
+        <h1>ConTaco</h1>
+    </div>
+    <div id="menu">
+        <h2>Menu</h2>
+        <div id="menu-items"></div>
+    </div>
+    <div id="order">
+        <h2>Your Order</h2>
+        <div id="order-items"></div>
+        <h3>Total: $<span id="total">0.00</span></h3>
+    </div>
+    <div id="text-box-container">
+        <input type="text" id="text-box" placeholder="Type here or press ENTER to start listening...">
+        <button id="submit-button" class="w3-button">
+            <i class="fa fa-solid fa-arrow-up"></i>
+        </button>
     </div>
     <script type="module" src="./src/main.ts"></script>
 </body>
+
 </html>
