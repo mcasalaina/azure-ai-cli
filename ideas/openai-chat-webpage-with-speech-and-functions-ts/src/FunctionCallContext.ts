@@ -44,7 +44,7 @@ export class FunctionCallContext {
     this.messages.push({ role: 'assistant', content: '', function_call: { name: this.function_name, arguments: this.function_arguments } });
     this.messages.push({ role: 'function', content: result, name: this.function_name });
 
-    return result;
+    return result ?? true;
   }
 
   clear(): void {

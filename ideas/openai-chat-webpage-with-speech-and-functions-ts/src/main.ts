@@ -21,7 +21,9 @@ const AZURE_OPENAI_SYSTEM_PROMPT = import.meta.env.AZURE_OPENAI_SYSTEM_PROMPT ??
     The customer may also ask about the restaurant's hours, location, or contact information. \
     The restaurant is open 7 days a week from 11AM to 10PM, and is located on 136th St. in Redmond, WA. \
     You will limit your responses to 25 words or less whenever possible. \
-    Do not ask about toppings - all items come with standard toppings.";
+    Do not ask about toppings - all items come with standard toppings. \
+    Before trying to add items the order, be sure and get the menu items so you know what the menu items are, including their ids.\
+    Before trying to update or remove items from the order, be sure and get the current order so you know what the current order is.";
 
 // NOTE: Never deploy your API Key in client-side environments like browsers or mobile apps
 // SEE: https://help.openai.com/en/articles/5112595-best-practices-for-api-key-safety
