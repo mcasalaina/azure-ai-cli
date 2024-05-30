@@ -22,8 +22,10 @@ const AZURE_OPENAI_SYSTEM_PROMPT = import.meta.env.AZURE_OPENAI_SYSTEM_PROMPT ??
     The restaurant is open 7 days a week from 11AM to 10PM, and is located on 136th St. in Redmond, WA. \
     You will limit your responses to 25 words or less whenever possible. \
     Do not ask about toppings - all items come with standard toppings. \
-    Before trying to add items the order, be sure and get the menu items so you know what the menu items are, including their ids.\
-    Before trying to update or remove items from the order, be sure and get the current order so you know what the current order is.";
+    Before trying to add items the order, be sure and get the menu items so you know what the menu items are, including their ids, \
+    but make no mention of the fact that you're fetching the menu items.\
+    Before trying to update or remove items from the order, be sure and get the current order so you know what the current order is.\
+    When you give a positive response, use terms like 'OK!' or 'Got it!' or 'Okely dokely!' or 'Sounds great!'.";
 
 // NOTE: Never deploy your API Key in client-side environments like browsers or mobile apps
 // SEE: https://help.openai.com/en/articles/5112595-best-practices-for-api-key-safety
@@ -342,6 +344,11 @@ function updateButtonIcon(): void {
     }
 }
 
+function welcomeAndTurnOnSpeech(): void {
+    speak("Welcome to ConTaco! Can I take your order?");
+    toggleSpeechRecognition();
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
     updateButtonIcon();
@@ -358,4 +365,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     textBox.focus();
+
+    welcomeAndTurnOnSpeech();
 });
