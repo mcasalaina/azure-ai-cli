@@ -5,28 +5,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>ConTaco Ordering Site</title>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-        body {
-            font-family: 'Raleway', sans-serif;
-            background-color: #fff3e0;
-            color: #4a148c;
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Pacifico&display=swap" rel="stylesheet">
+
+   <style>
+        
+        html,body{
+            height: 100%;
+            padding: 0;
             margin: 0;
+        }
+        
+        body {
+            font-family: "Inter", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            background-color: #FEF9F1;
+            margin: 0;
+            padding-right: 2rem;
+            padding-left: 2rem;
+        }
+
+        #content {
+            display: flex;
+            height: 100%;
+            width: 100%;
         }
 
         #header {
-            background-color: #4a148c;
             color: white;
-            padding: 10px;
             display: flex;
             align-items: center;
+            margin-bottom: 16px;
         }
 
         #header img {
-            height: 80px;
-            margin-right: 10px;
+            height: 56px;
+            margin-bottom: 1rem;
         }
 
         #header h1 {
@@ -38,92 +57,229 @@
         }
 
         #menu {
-            width: 60%;
-            padding: 20px;
-            background-color: #fff59d;
+            width: 75%;
+            display: flex;
+            flex-direction: column;
+            padding: 32px;
             float: left;
-
-            font-family: "Nunito Sans", "Nunito-Sans-Fallback", sans-serif;
-            font-weight: 900;
+            font-weight: 400;
+            font-size: 20px;
+            border-right: 1px solid #D6D6D6;
         }
+    
 
         #menu h2 {
             margin: 0;
+            font-weight: 700;
+            font-size: 20px;
 
-            font-family: "Nunito Sans", "Nunito-Sans-Fallback", sans-serif;
-            font-weight: 900;
         }
 
         #order {
-            width: 40%;
-            padding: 20px;
-            background-color: #ffcc80;
+            width: 25%;
+            padding: 32px;
             float: right;
-
-            font-family: "Nunito Sans", "Nunito-Sans-Fallback", sans-serif;
-            font-weight: 900;
+            font-weight: 400;
+            font-size: 20px;
         }
 
         #order h2 {
             margin: 0;
+            font-weight: 700;
+            font-size: 20px;
+        }
 
-            font-family: "Nunito Sans", "Nunito-Sans-Fallback", sans-serif;
-            font-weight: 900;
+        #menu-items {
+            display: flex;
+            flex-grow: 2;
+            margin-top: 10px;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-content: flex-start;
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            border-radius: 12px;
+            margin-bottom: 12px;
+        }
+
+        .menu-item div {
+            position: relative;
+        }
+
+        .menu-item button {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+        }
+
+        .menu-item p {
+            margin: 0;
+        }
+
+        .menu-price{
+            font-weight: 500;
+            font-size: 14px;
+            color: #767676;
+        }
+        
+        .menu-name {
+            padding-top: 8px;
         }
 
         .menu-item {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             margin-bottom: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            max-width: 23%;
+            gap: 2px;
         }
 
         .order-item {
             display: flex;
+            flex-direction: row;
             justify-content: space-between;
-            margin-bottom: 10px;
+            align-items: center;
+            font-weight: 400;
+            font-size: 16px;
+            padding-top: 16px;
+            padding-bottom: 16px;
+
+        }
+
+        .order-text{
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .total-price {
+            font-weight: 500;
+            font-size: 14px;
+            color: #767676;
+            margin: 0px;
+        }
+        
+        .total-name {
+            padding-top: 0px;
+            margin: 0px;
+            font-weight: 600;
+        }
+
+        h4 {
+            margin: 0;
+            padding: 0;
+        }
+
+        #total-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-top: 8px;
+            margin-bottom: 8px;
+            padding: 8px 0;
+
+            font-weight: 700;
+            font-size: 20px;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
         }
 
         #text-box-container {
-            position: fixed;
-            bottom: 20px;
+            position: center;
             width: 100%;
             display: flex;
+            gap: 8px;
             justify-content: center;
             align-items: center;
         }
 
+        #text-box, #submit-button {
+            box-shadow: 0px 0px 2px 0px #0000001F, 0px 8px 16px 0px #92661B38;
+        }
+        
         #text-box {
             width: 60%;
-            padding: 10px;
+            padding: 16px;
+            font-size: 14px;
+            border-radius: 12px;
+            border: none;
+        }
+
+        #text-box:active, #text-box:focus, #text-box:hover{
+            outline: 2px solid #000000;
+        }
+
+        #submit-button:active, #submit-button:focus, #submit-button:hover{
+            outline: 2px solid #000000;
+            background-color: #fff;
         }
 
         #submit-button {
-            padding: 10px;
+            width: 46px;
+            height: 46px;
+            padding: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 12px;
+            background-color: #ffffff;
+            border: none;
         }
+
+        button {
+            padding: 8px;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            border-radius: 100px;
+            background-color: #fff;
+            stroke: none;
+            border: none;
+            box-shadow: 0px 0px 2px 0px #0000001F, 0px 8px 16px 0px #00000024;
+        }
+
+        .remove-button {
+           background: none;
+           background-color: transparent;
+           width: auto;
+           height: auto;
+           box-shadow: none
+        }
+
     </style>
 </head>
 
 <body>
-    <div id="header">
-        <img src="assets/contaco_cat.png" alt="Contaco Logo - Cat eating a taco">
-        <img src="assets/contaco_script.png" alt="Contaco">
-    </div>
+<div id="content">
     <div id="menu">
-        <h2>Menu</h2>
+        <div id="header">
+            <img src="assets/ContacoLogo.png" alt="Contaco Logo - Cat eating a taco">
+        </div>
+        <h2>Featured items</h2>
         <div id="menu-items"></div>
+        <div id="text-box-container">
+            <input type="text" id="text-box" placeholder="Type here or press ENTER to start listening...">
+            <button id="submit-button" class="w3-button">
+                <i class="fa fa-solid fa-arrow-up"></i>
+            </button>
+        </div>
     </div>
+
     <div id="order">
         <h2>Your Order</h2>
         <div id="order-items"></div>
-        <h3>Total: $<span id="total">0.00</span></h3>
+        <div id="total-container">
+            <h4>Total:</h4>
+            <h4>$<span id="total">0.00</span></h4>
     </div>
-    <div id="text-box-container">
-        <input type="text" id="text-box" placeholder="Type here or press ENTER to start listening...">
-        <button id="submit-button" class="w3-button">
-            <i class="fa fa-solid fa-arrow-up"></i>
-        </button>
-    </div>
-    <script type="module" src="./src/main.ts"></script>
+</div>
+<script type="module" src="./src/main.ts"></script>
 </body>
 
 </html>

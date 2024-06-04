@@ -8,6 +8,7 @@ import { OpenAI} from 'openai';
 import { OpenAIChatCompletionsFunctionsStreamingClass } from "./OpenAIChatCompletionsFunctionsStreamingClass";
 import { factory } from './OpenAIChatCompletionsCustomFunctions';
 
+
 // What's the system prompt?
 const AZURE_OPENAI_SYSTEM_PROMPT = import.meta.env.AZURE_OPENAI_SYSTEM_PROMPT ?? 
     "You are a food ordering assistant for the taco restaurant ConTaco. \

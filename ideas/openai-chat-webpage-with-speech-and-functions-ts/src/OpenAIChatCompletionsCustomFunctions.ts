@@ -1,5 +1,5 @@
 class MenuItem {
-  constructor(public id: string, public name: string, public price: number, public description: string) { }
+  constructor(public id: string, public name: string, public price: number, public description: string, public img: string,) { }
 }
 
 class Menu {
@@ -33,7 +33,7 @@ class Menu {
       menuItems.forEach(item => {
         const itemDiv = document.createElement('div');
         itemDiv.className = 'menu-item';
-        itemDiv.innerHTML = `${item.name} <button onclick="addItem('${item.name}', 1)">Add - $${item.price.toFixed(2)}</button>`;
+        itemDiv.innerHTML = `<div><img src="/assets/${item.img}"><button onclick="addItem('${item.name}', 1)"><img src="/assets/Plus.svg"></button></div> <p class="menu-name">${item.name}</p> <p class="menu-price">$${item.price.toFixed(2)}</p>`;
         menuItemsDiv.appendChild(itemDiv);
       });
     }
@@ -117,7 +117,7 @@ class Order {
       if (menuItem) {
         const itemDiv = document.createElement('div');
         itemDiv.className = 'order-item';
-        itemDiv.innerHTML = `${menuItem.name} - $${(menuItem.price * item.quantity).toFixed(2)} <button onclick="removeItem(${index})">Remove</button>`;
+        itemDiv.innerHTML = `<div class="order-text"><p class="total-name">${menuItem.name}</p> <p class="total-price">${item.quantity} x $${(menuItem.price).toFixed(2)}</p></div> <button class="remove-button" onclick="removeItem(${index})">Remove</button>`;
         orderItemsDiv.appendChild(itemDiv);
       }
     });
@@ -139,13 +139,14 @@ class Order {
 }
 
 const menu = new Menu();
-menu.addItem(new MenuItem("taco", "Taco", 3.00, "A delicious taco"));
-menu.addItem(new MenuItem("burrito", "Burrito", 5.00, "A tasty burrito"));
-menu.addItem(new MenuItem("chimichanga", "Chimichanga", 6.00, "A spicy chimichanga"));
-menu.addItem(new MenuItem("quesadilla", "Quesadilla", 4.00, "A cheesy quesadilla"));
-menu.addItem(new MenuItem("small_drink", "Small Drink", 1.50, "A small drink"));
-menu.addItem(new MenuItem("medium_drink", "Medium Drink", 2.00, "A medium drink"));
-menu.addItem(new MenuItem("large_drink", "Large Drink", 2.50, "A large drink"));
+menu.addItem(new MenuItem("taco", "Street Tacos", 3.00, "A delicious taco", 'tacos.png'));
+menu.addItem(new MenuItem("burrito", "Loaded Burrito", 5.00, "A tasty burrito", 'burrito.png'));
+menu.addItem(new MenuItem("chimichanga", "Chimichanga", 6.00, "A spicy chimichanga", 'chimichanga.png'));
+menu.addItem(new MenuItem("quesadilla", "Quesadilla", 4.00, "A cheesy quesadilla", 'quesadilla.png'));
+menu.addItem(new MenuItem("chips_queso", "Chips & Queso", 2.50, "Chips and cheese", 'chipsdip.png'));
+menu.addItem(new MenuItem("jarritos", "Jarritos Soda", 1.20, "An authentic soda", 'jarritos.png'));
+menu.addItem(new MenuItem("fountain_drink", "Fountain Drink", 1.00, "A fountain drink", 'soda.png'));
+menu.addItem(new MenuItem("cinnamon_twists", "Cinnamon Twists", 1.00, "A cup of cinnamon twists", 'twists.png'));
 menu.loadMenuItemsDiv();
 
 let order = new Order();
